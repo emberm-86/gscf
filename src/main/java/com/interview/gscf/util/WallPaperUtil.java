@@ -1,11 +1,9 @@
 package com.interview.gscf.util;
 
-import io.vavr.control.Try;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -24,11 +22,12 @@ public class WallPaperUtil {
             return null;
         }
 
-        return Try.of(systemResource::toURI).recover(URISyntaxException.class,
-                e -> {
-            System.out.println(e.getMessage());
-            return null;
-        }).get();
+        try {
+            return systemResource.toURI();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return null;
     }
 
     public static <R> R test(URI uri, Function<Stream<String>, R> function) {

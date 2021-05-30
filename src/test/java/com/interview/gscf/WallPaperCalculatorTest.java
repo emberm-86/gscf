@@ -53,5 +53,4 @@ public class WallPaperCalculatorTest {
                 "7x3x4", "8x28x29", "15x26x22", "15x10x7", "17x15x2",
                 "22x27x12", "6x18x15", "2x25x8"));
     }
-
 }

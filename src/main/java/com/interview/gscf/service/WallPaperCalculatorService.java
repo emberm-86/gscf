@@ -54,7 +54,7 @@ public class WallPaperCalculatorService {
     }
 
     private boolean isPositiveNumber(String str) {
-        return str.charAt(0) != 0 && str.chars().allMatch(Character::isDigit);
+        return str.charAt(0) != '0' && str.chars().allMatch(Character::isDigit);
     }
 
     private Room convertRowToRoom(String str) {

@@ -1,8 +1,5 @@
 package com.interview.gscf;
 
-import com.interview.gscf.service.WallPaperCalculatorService;
-import com.interview.gscf.util.WallPaperUtil;
-
 import java.net.URI;
 import java.util.function.Function;
 import java.util.stream.Stream;

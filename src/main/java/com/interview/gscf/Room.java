@@ -1,4 +1,4 @@
-package com.interview.gscf.pojo;
+package com.interview.gscf;
 
 public class Room {
 

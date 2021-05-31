@@ -2,9 +2,10 @@ package com.interview.gscf;
 
 import com.interview.gscf.service.WallPaperCalculatorService;
 import com.interview.gscf.util.WallPaperUtil;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.net.URI;
 import java.util.Arrays;
@@ -14,11 +15,11 @@ public class WallPaperCalculatorTest {
 
     private static final String INPUT_FILE = "input1.txt";
 
-    private WallPaperCalculatorService wallPaperCalculatorService;
-    private URI uri;
+    private static WallPaperCalculatorService wallPaperCalculatorService;
+    private static URI uri;
 
-    @Before
-    public void init() {
+    @BeforeAll
+    public static void init() {
         uri = WallPaperUtil.loadFile(INPUT_FILE);
         wallPaperCalculatorService = new WallPaperCalculatorService();
     }
@@ -28,8 +29,8 @@ public class WallPaperCalculatorTest {
         Integer sum = WallPaperUtil.test(uri,
                 wallPaperCalculatorService::getSumForAllRooms);
 
-        Assert.assertNotNull(sum);
-        Assert.assertEquals(1452150, sum.intValue());
+        Assertions.assertNotNull(sum);
+        Assertions.assertEquals(1452150, sum.intValue());
     }
 
     @Test
@@ -37,8 +38,8 @@ public class WallPaperCalculatorTest {
         List<String> cubicReversedList = WallPaperUtil.test(uri,
                 wallPaperCalculatorService::getCubicOrderByAmountDesc);
 
-        Assert.assertNotNull(cubicReversedList);
-        Assert.assertEquals(cubicReversedList, Arrays.asList("28x28x28",
+        Assertions.assertNotNull(cubicReversedList);
+        Assertions.assertEquals(cubicReversedList, Arrays.asList("28x28x28",
                 "15x15x15", "12x12x12", "9x9x9", "7x7x7"));
     }
 
@@ -47,8 +48,8 @@ public class WallPaperCalculatorTest {
         List<String> repetitionList = WallPaperUtil.test(uri,
                 wallPaperCalculatorService::getRoomsWithRepetition);
 
-        Assert.assertNotNull(repetitionList);
-        Assert.assertEquals(repetitionList, Arrays.asList("22x3x1", "6x8x12",
+        Assertions.assertNotNull(repetitionList);
+        Assertions.assertEquals(repetitionList, Arrays.asList("22x3x1", "6x8x12",
                 "17x25x1", "8x8x16", "4x3x23",
                 "7x3x4", "8x28x29", "15x26x22", "15x10x7", "17x15x2",
                 "22x27x12", "6x18x15", "2x25x8"));
